@@ -14,6 +14,8 @@ This python program enables to compute the analytical expressions of the Dekel+ 
 <a href="https://ui.adsabs.harvard.edu/link_gateway/2020arXiv200408395F/EPRINT_PDF" style="text-decoration:none" class="type1"> [PDF] </a>
 </p>
 
+<% import time %>
+<% stored_time = time.strftime("%d:%m:%y",time.localtime(time.time())) %>
 
 .. code-block:: python
        import numpy as np
