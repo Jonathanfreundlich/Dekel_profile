@@ -14,6 +14,15 @@ This python program enables to compute the analytical expressions of the Dekel+ 
 <a href="https://ui.adsabs.harvard.edu/link_gateway/2020arXiv200408395F/EPRINT_PDF" style="text-decoration:none" class="type1"> [PDF] </a>
 </p>
 
+<p align="justify">
+Quantities expressed in this program: 
+<ul>
+       <li>The density </li>
+       <li>The average density</li>
+       <li>The logarithmic density slope</li>
+</ul>       
+</p>
+
 <pre><code>
 import numpy as np
 import matplotlib.pyplot as plt
