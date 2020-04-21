@@ -14,7 +14,7 @@ This python program enables to compute the analytical expressions of the Dekel+ 
 <a href="https://ui.adsabs.harvard.edu/link_gateway/2020arXiv200408395F/EPRINT_PDF" style="text-decoration:none" class="type1"> [PDF] </a>
 </p>
 
-<pre><code class="language-javascript">
+<pre><code class="language-css">
 import numpy as np
 import matplotlib.pyplot as plt
 import Dekel_profile as prf
