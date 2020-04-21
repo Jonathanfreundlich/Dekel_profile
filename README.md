@@ -14,6 +14,4 @@ This python program enables to compute the analytical expressions of the Dekel+ 
 <a href="https://ui.adsabs.harvard.edu/link_gateway/2020arXiv200408395F/EPRINT_PDF" style="text-decoration:none" class="type1"> [PDF] </a>
 </p>
 
-<p align="justify">
-Please refer to both when using these analytical expressions. 
-</p>
+
