@@ -20,3 +20,8 @@ import matplotlib.pyplot as plt
 import Dekel_profile as prf
 </code></pre>
 
+<script>
+import numpy as np
+import matplotlib.pyplot as plt
+import Dekel_profile as prf     
+</script>
