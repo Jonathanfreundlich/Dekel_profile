@@ -15,3 +15,7 @@ This python program enables to compute the analytical expressions of the Dekel+ 
 </p>
 
 
+.. code-block:: python
+       import numpy as np
+       import matplotlib.pyplot as plt
+       import Dekel_profile as prf
