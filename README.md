@@ -33,9 +33,9 @@ Quantities integrated numerically in this program:
        <li>The distribution function</li>
        <li>The projected surface density</li>
        <li>The projected mass</li>
-       <li>The convergence</li>
-       <li>The shear</li>
-</ul>       
+       <li>The lensing convergence</li>
+       <li>The lensing shear</li>
+</ul> 
 
 <p align="justify">
 The program also implements the <b>mass-dependent prescriptions</b> for the Dekel+ and the Di Cintio+ profiles, and provides functions to convert the shape parameters (a,c) into an inner slope s1 and a concentration c2 and vice-versa. 
