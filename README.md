@@ -38,7 +38,7 @@ Quantities integrated numerically in this program:
 </ul>       
 
 <p align="justify">
-       The program also implements the <b>mass-dependent prescriptions</b> for the Dekel+ and the Di Cintio+ profiles. 
+The program also implements the <b>mass-dependent prescriptions</b> for the Dekel+ and the Di Cintio+ profiles, and provides functions to convert the shape parameters (<i>a, c</i>) into an inner slope <i>s_1</i> and a concentration <i>c_2</i> and vice-versa. 
 </p>
 
 <h4 align="justify">
