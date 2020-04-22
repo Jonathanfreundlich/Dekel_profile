@@ -91,16 +91,16 @@ plt.axis([-2,0,-1,4])
 </code></pre>
 
 <p align="center">
- <img src="images/examples_U.pdf"  width="350">
- <img src="images/examples_s.pdf"  width=30% />
- <img src="images/examples_U.pdf"  width=30% />
+ <img src="examples_rho.pdf"  width=30%>
+ <img src="images/examples_s.pdf"  width=30%>
+ <img src="images/examples_U.pdf"  width=30%>
  
- <img src="images/examples_V.pdf"  width=30% />
- <img src="images/examples_sigma.pdf"  width=30% />
- <img src="images/examples_f_log.pdf"  width=30% />
+ <img src="images/examples_V.pdf"  width=30%>
+ <img src="images/examples_sigma.pdf"  width=30%>
+ <img src="images/examples_f_log.pdf"  width=30%>
  
- <img src="images/examples_surfdens_truncated.pdf"  width=30% />
- <img src="images/examples_alpha.pdf"  width=30% />
- <img src="images/examples_gamma.pdf"  width=30% />
+ <img src="images/examples_surfdens_truncated.pdf"  width=30%>
+ <img src="images/examples_alpha.pdf"  width=30%>
+ <img src="images/examples_gamma.pdf"  width=30%>
 </p>
 
