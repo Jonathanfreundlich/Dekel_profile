@@ -92,15 +92,15 @@ plt.axis([-2,0,-1,4])
 
 <p align="center">
  <img src="images/examples_rho.jpg"  width=30%>
- <img src="images/examples_s.pdf"  width=30%>
- <img src="images/examples_U.pdf"  width=30%>
+ <img src="images/examples_s.jpg"  width=30%>
+ <img src="images/examples_U.jpg"  width=30%>
  
- <img src="images/examples_V.pdf"  width=30%>
- <img src="images/examples_sigma.pdf"  width=30%>
- <img src="images/examples_f_log.pdf"  width=30%>
+ <img src="images/examples_V.jpg"  width=30%>
+ <img src="images/examples_sigma.jpg"  width=30%>
+ <img src="images/examples_f_log.jpg"  width=30%>
  
- <img src="images/examples_surfdens_truncated.pdf"  width=30%>
- <img src="images/examples_alpha.pdf"  width=30%>
- <img src="images/examples_gamma.pdf"  width=30%>
+ <img src="images/examples_surfdens_truncated.jpg"  width=30%>
+ <img src="images/examples_alpha.jpg"  width=30%>
+ <img src="images/examples_gamma.jpg"  width=30%>
 </p>
 
