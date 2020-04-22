@@ -91,7 +91,7 @@ plt.axis([-2,0,-1,4])
 </code></pre>
 
 <p align="center">
- <img src="examples_rho.jpg"  width=30%>
+ <img src="images/examples_rho.jpg"  width=30%>
  <img src="images/examples_s.pdf"  width=30%>
  <img src="images/examples_U.pdf"  width=30%>
  
