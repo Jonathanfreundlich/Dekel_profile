@@ -90,8 +90,8 @@ plt.ylabel(r'$\log(\rho/\overline{\rho_{\rm vir}})$')
 plt.axis([-2,0,-1,4])
 </code></pre>
 
-
- <img src="https://github.com/Jonathanfreundlich/Dekel_profile/blob/master/images/examples_U.pdf"  width=30% />
+<p align="center">
+ <img src="./images/examples_U.pdf"  width=30%>
  <img src="images/examples_s.pdf"  width=30% />
  <img src="images/examples_U.pdf"  width=30% />
  
@@ -102,3 +102,5 @@ plt.axis([-2,0,-1,4])
  <img src="images/examples_surfdens_truncated.pdf"  width=30% />
  <img src="images/examples_alpha.pdf"  width=30% />
  <img src="images/examples_gamma.pdf"  width=30% />
+</p>
+
