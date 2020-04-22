@@ -90,7 +90,7 @@ plt.ylabel(r'$\log(\rho/\overline{\rho_{\rm vir}})$')
 plt.axis([-2,0,-1,4])
 </code></pre>
 
- <img src="images/examples_rho.pdf"  width=30% />
+ <img src="./images/examples_rho.pdf"  width=30% />
  <img src="images/examples_s.pdf"  width=30% />
  <img src="images/examples_U.pdf"  width=30% />
  
