@@ -9,9 +9,9 @@ This python program enables to compute the analytical expressions of the Dekel+ 
 <a href="https://ui.adsabs.harvard.edu/link_gateway/2020arXiv200408395F/EPRINT_PDF" style="text-decoration:none" class="type1"> [PDF] </a>
 </p>
 
-<h3 align="justify">
+<h4 align="justify">
 Quantities expressed analytically in this program: 
-</h3>
+</h4>
 <ul>
        <li>The density </li>
        <li>The average density</li>
