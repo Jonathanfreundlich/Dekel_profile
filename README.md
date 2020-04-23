@@ -23,7 +23,7 @@ Quantities expressed analytically in this program:
 </ul>       
 
 <p align="justify">
-For the velocity dispersion, it also provides two expressions in terms of finite sums (<a href="https://ui.adsabs.harvard.edu/abs/1996MNRAS.278..488Z/abstract"  style="text-decoration:none" class="type1">Zhao 1996,</a> Eq. 19, and <a href="https://ui.adsabs.harvard.edu/abs/2020MNRAS.491.4523F/abstract"  style="text-decoration:none" class="type1">Freundlich et al. 2020a</a>, Eqs. B8 and B10). Some of the quantities are also defined for other profiles (NFW, Einasto, Di Cintio+, generalised NFW with flexible inner slope). 
+For the velocity dispersion, it provides both an expression in terms of incomplete beta functions (<a href="https://ui.adsabs.harvard.edu/abs/2020arXiv200408395F/abstract"  style="text-decoration:none" class="type1">Freundlich et al. 2020b</a>, Eq. 19) and two expressions in terms of finite sums (<a href="https://ui.adsabs.harvard.edu/abs/1996MNRAS.278..488Z/abstract"  style="text-decoration:none" class="type1">Zhao 1996</a>, Eq. 19, and <a href="https://ui.adsabs.harvard.edu/abs/2020MNRAS.491.4523F/abstract"  style="text-decoration:none" class="type1">Freundlich et al. 2020a</a>, Eqs. B8 and B10). Some of the quantities are also defined for other profiles (NFW, Einasto, Di Cintio+, generalised NFW with flexible inner slope). 
 </p>
 
 <h4 align="justify">
@@ -36,6 +36,10 @@ Quantities integrated numerically in this program:
        <li>The lensing convergence</li>
        <li>The lensing shear</li>
 </ul> 
+
+<p align="justify">
+Except the distribution function, these quantities can be expressed analytically in terms of Fox H functions and series expansions (<a href="https://ui.adsabs.harvard.edu/abs/2020arXiv200408395F/abstract"  style="text-decoration:none" class="type1">Freundlich et al. 2020b</a>, Section 2.3 and Appendix E). 
+</p>
 
 <p align="justify">
 The program also implements the <b>mass-dependent prescriptions</b> for the Dekel+ and the Di Cintio+ profiles, and provides functions to convert the shape parameters (a,c) into an inner slope s1 and a concentration c2 and vice-versa. 
