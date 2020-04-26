@@ -10,7 +10,7 @@ This python program enables to compute the analytical expressions of the Dekel+ 
 </p>
 
 <h4 align="justify">
-Quantities expressed analytically in this program: 
+Quantities expressed analytically: 
 </h4>
 <ul>
        <li>The density </li>
@@ -27,7 +27,7 @@ For the velocity dispersion, it provides both an expression in terms of incomple
 </p>
 
 <h4 align="justify">
-Quantities integrated numerically in this program: 
+Quantities integrated numerically: 
 </h4>
 <ul>
        <li>The distribution function</li>
@@ -43,6 +43,10 @@ Except the distribution function, these quantities can be expressed analytically
 
 <p align="justify">
 The program also implements the <b>mass-dependent prescriptions</b> for the Dekel+ and the Di Cintio+ profiles, and provides functions to convert the shape parameters (a,c) into an inner slope s1 and a concentration c2 and vice-versa. 
+</p>
+
+<p align="justify">
+<a href="./Fitting_functions.py"  style="text-decoration:none" class="type1">Fitting_functions.py</a> provides simple functions to fit simulated density profiles with the Dekel+ profile. The fits are constrained to have a negative logarithmic slope. 
 </p>
 
 <h4 align="justify">
