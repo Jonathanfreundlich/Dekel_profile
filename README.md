@@ -1,7 +1,7 @@
 <h2> Analytic expressions for the Dekel+ profile </h2>
 
 <p align="justify">
-This python program enables to compute the analytical expressions of the Dekel+ dark matter density profile. It is based on the following article: 
+This python program enables to compute the analytical expressions of the Dekel+ dark matter density profile. It is mainly based on the following article: 
 </p>
 
 <p align="justify">
