@@ -46,7 +46,7 @@ The program also implements the <b>mass-dependent prescriptions</b> for the Deke
 </p>
 
 <p align="justify">
-<a href="./Fitting_functions.py"  style="text-decoration:none" class="type1">Fitting_functions.py</a> provides simple functions to fit simulated density profiles with the Dekel+ profile. The fits are constrained to have a negative logarithmic slope. 
+<a href="./Fitting_functions.py"  style="text-decoration:none" class="type1">Fitting_functions.py</a> provides simple functions to fit simulated density profiles with the Dekel+ profile. The fits are constrained to avoid negative inner slopes. 
 </p>
 
 <h4 align="justify">
