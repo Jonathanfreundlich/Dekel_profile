@@ -24,18 +24,22 @@ def errfunc_einasto(p, r, logrho,Rvir,Mvir,w=1):
     
 def errfunc_dekel(p, r, logrho,Rvir,Mvir,w=1):
     c,a=p 
-    fun = np.log10(prf.rho_function(r, (c,a,0.5,3,Rvir,Mvir),model='dekel'))
+    if (a > 2.999) or (c<0.) or (a+3.5*np.sqrt(c*10**(-2.))<0.):
+        return -np.inf * np.ones( len(r) )
+    
+    fun = np.log10(prf.rho_function(r, (c,a,2,3,Rvir,Mvir),model='dekel'))
         
-    if (a+3.5*np.sqrt(c*10**(-2.))<0.) or (c<0.):
-        penalization=10000.
-    else:
-        penalization=0.
-        
-    return w*(fun - logrho-penalization)
+    return w*(fun - logrho)
 
 def errfunc_gnfw(p, r, logrho,Rvir,Mvir,w=1):
     c,a=p 
-    fun = np.log10(prf.rho_function(r, (c,a,Rvir,Mvir),model='enfw'))
+    fun = np.log10(prf.rho_function(r, (c,a,Rvir,Mvir),model='gnfw'))
+        
+    return w*(fun - logrho)
+
+def errfunc_nfw(p, r, logrho,Rvir,Mvir,w=1):
+    c=p[0]
+    fun = np.log10(prf.rho_function(r, (c,Rvir,Mvir),model='nfw'))
         
     return w*(fun - logrho)
     
@@ -44,21 +48,35 @@ def get_sigma_model(y,ymodel):
     N=size(y)
     return np.sqrt(sum(residuals**2)/N)
     
-# DEKEL RHO FIT
-pfit, perr = optimize.leastsq(errfunc_dekel, (10.,1.), args=(r,np.log10(rho),Rvir,Mvir,1.), full_output=0)
-c_dekel,a_dekel=pfit 
-params_dekel_rho=(c_dekel,a_dekel,2,3.,Rvir,Mvir) 
-print 'dekel_fit  :', params_dekel_rho
 
-# EINASTO FIT
-pfit, perr = optimize.leastsq(errfunc_einasto, (10.,1.), args=(r,np.log10(rho),Rvir,Mvir,1.), full_output=0)
-c_einasto,n_einasto=pfit
-params_einasto=(c_einasto,n_einasto,Rvir,Mvir)
-print 'einasto_fit :', params_einasto
+# DEKEL rho fit
+def best_fit_Dekel( r, rho, Rvir,Mvir ):
+    pfit, perr = optimize.leastsq( errfunc_dekel, (10.,1.), args=(r,np.log10(rho),Rvir,Mvir,1.), full_output=0)
+    c_dekel,a_dekel=pfit 
+    params_dekel_rho=(c_dekel,a_dekel,2,3.,Rvir,Mvir) 
+    return params_dekel_rho
 
-# ENFW FIT
-pfit, perr = optimize.leastsq(errfunc_gnfw, (10.,1.), args=(r,np.log10(rho),Rvir,Mvir,1.), full_output=0)
-c_gnfw,a_gnfw=pfit
-params_enfw=(c_gnfw,a_gnfw,rvir,mvir) 
-print 'gnfw_fit :', params_gnfw
+# NFW rho fit
+def best_fit_NFW( r, rho, Rvir,Mvir ):
+    pfit, perr = optimize.leastsq( errfunc_nfw, (10.), args=(r,np.log10(rho),Rvir,Mvir,1.), full_output=0)
+    c_nfw =  pfit[0]
+    params_nfw =  (c_nfw, Rvir,Mvir)
+    return params_nfw
+
+
+# gNFW rho fit
+def best_fit_gNFW( r, rho, Rvir,Mvir ):
+    pfit, perr = optimize.leastsq( errfunc_gnfw, (10.,1.), args=(r,np.log10(rho),Rvir,Mvir,1.), full_output=0)
+    c_gnfw,a_gnfw=pfit
+    params_gnfw=(c_gnfw,a_gnfw,Rvir,Mvir) 
+    return params_gnfw
+
+
+# Einasto rho fit
+def best_fit_Einasto( r, rho, Rvir,Mvir ):
+    pfit, perr = optimize.leastsq( errfunc_einasto, (10.,1.), args=(r,np.log10(rho),Rvir,Mvir,1.), full_output=0)
+    c_einasto,n_einasto=pfit
+    params_einasto=(c_einasto,n_einasto,Rvir,Mvir)
+    return params_einasto
+
 
