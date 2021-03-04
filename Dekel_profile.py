@@ -48,7 +48,7 @@ def rho_function(r, params, model='dekel'):
         rs = float(Rvir)/c
         h = rs/float(pow(2*n,n))    
         raw_rho = np.exp(-pow((r/h),pow(n,-1)))
-        q = Mvir/calc_total_mass(r,raw_rho,Rvir)
+        q = Mvir / quad( dM_einasto,1.e-8*Rvir,Rvir,args=(1.,h,n), epsabs=0., epsrel=1.e-5)[0]
         return q*raw_rho
     
     # DI CINTIO PROFILE
@@ -63,7 +63,7 @@ def rho_function(r, params, model='dekel'):
         rs=float(Rvir)/c
         x=r/rs
         raw_rho=1./(pow(x,a)*pow(1.+x,3.-a))
-        rhoc=Mvir/calc_total_mass(r,raw_rho,Rvir)
+        rhoc = Mvir / quad( dM_gNFW,1.e-8*Rvir,Rvir,args=(1.,rs,a), epsabs=0., epsrel=1.e-5)[0]
         return rhoc/(pow(x,a)*pow(1.+x,3.-a))
         
 # MEAN DENSITY  [Msun kpc^-3]
@@ -102,28 +102,26 @@ def M_function(r, params, model='dekel'):
         for i in range(np.size(r)):
             M_array[i]=quad(dM_dicintio,0,r[i],args=(rho_s,r_s,a,b,g))[0]
         return M_array
-    
+   
     if model == 'einasto':
         (c, n, Rvir, Mvir) = params
         rs = float(Rvir)/c
-        h = rs/float(pow(2*n,n))    
-        raw_rho = np.exp(-pow((r/h),pow(n,-1)))
-        q = Mvir/calc_total_mass(r,raw_rho,Rvir)
+        h = rs/float( pow(2*n,n) )
+        q = Mvir / quad( dM_einasto,1.e-8*Rvir,Rvir,args=(1.,h,n), epsabs=0., epsrel=1.e-5)[0]
         M_array=np.nan*np.ones_like(r)
         for i in range(np.size(r)):
-            M_array[i]=q*calc_total_mass(r,raw_rho,r[i])
+            M_array[i]=q * quad( dM_einasto,1.e-8*Rvir,r[i],args=(1.,h,n), epsabs=0., epsrel=1.e-5)[0]
         return M_array
     
     if model == 'gnfw':
         (c,a,Rvir,Mvir) = params
         rs=float(Rvir)/c
         x=r/rs
-        raw_rho=1./(pow(x,a)*pow(1.+x,3.-a))
-        rhoc=Mvir/calc_total_mass(r,raw_rho,Rvir)
+        rhoc = Mvir / quad( dM_gNFW,1.e-8*Rvir,Rvir,args=(1.,rs,a), epsabs=0., epsrel=1.e-5)[0]
         M_array=np.nan*np.ones_like(r)
         for i in range(np.size(r)):
-            M_array[i]=rhoc*calc_total_mass(r,raw_rho,r[i])
-        return M_array        
+            M_array[i]= rhoc * quad( dM_gNFW,1.e-8*Rvir,r[i],args=(1.,rs,a), epsabs=0., epsrel=1.e-5)[0]
+        return M_array         
 
 # ORBITAL VELOCITY [kpc Gyr^-1]
 def V_function(r, params, model='dekel'):
@@ -415,6 +413,12 @@ def calc_total_mass(r, rho, Rmax):
 
 def dM_dicintio(r,rho_s,r_s,a,b,g):
     return 4.*np.pi*rho_s*pow(r,2)/(pow(r/r_s,g)*pow(1.+pow(r/r_s,a),(b-g)/a))
+
+def dM_gNFW(r,rho_s,r_s,g):
+    return 4.*np.pi*rho_s*pow(r,2)/( pow(r/r_s,g) * pow(1.+r/r_s,3-g) )
+
+def dM_einasto(r,q,h,n):
+    return 4.*np.pi*pow(r,2) * q*np.exp( -pow( (r/h), 1./n ) )
 
 def Binc(a,b,x):
     return betainc(a,b,x)*gamma(a)*gamma(b)/gamma(a+b)
