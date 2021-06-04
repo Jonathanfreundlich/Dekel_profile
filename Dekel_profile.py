@@ -285,25 +285,45 @@ def get_params_dicintio(rvir,mstar,mvir,fit_rvir='BN'):
     return (rho_s,r_s,a,b,g)
     
 # DEKEL+ PROFILE
-def get_params_dekel(rvir,mstar,mvir):
+def get_params_dekel(rvir,mstar,mvir,fit_func=='new'):
     logMM=log10(mstar/mvir)
     
-    popt_s1=[1.76438231e-01, 1.71787327e-02, 1.42328182e+02, 1.23488025e+00]
-    popt_c2=[1.86247747e+02, 1.37125654e+00, 0.00000000e+00, 1.41574162e-01]
+    if fit_func=='old':
+        popt_s1=[1.76438231e-01, 1.71787327e-02, 1.42328182e+02, 1.23488025e+00]
+        popt_c2=[1.86247747e+02, 1.37125654e+00, 0.00000000e+00, 1.41574162e-01]
+
+        c2_DMO=10**(1.025-0.097*np.log10(mvir*0.671/1e12))
+        s1_DMO=(1.+0.03*c2_DMO)/(1.+0.01*c2_DMO)
+
+        s1_ratio=s1_function1(mstar/mvir,*popt_s1)
+        s1=s1_ratio*s1_DMO
+
+        c2_ratio=exp1min_func(mstar/mvir,*popt_c2)
+        c2=c2_ratio*c2_DMO
+
+        a=(1.5*s1-2.*(3.5-s1)*sqrt(0.01)*sqrt(c2))/(1.5-(3.5-s1)*sqrt(0.01)*sqrt(c2))
+        c=((s1-2.)/((3.5-s1)*sqrt(0.01)-1.5/sqrt(c2)))**2
         
-    c2_DMO=10**(1.025-0.097*np.log10(mvir*0.671/1e12))
-    s1_DMO=(1.+0.03*c2_DMO)/(1.+0.01*c2_DMO)
+    if fit_func=='new':
+        popt_s1=[1.30278262e-03,2.86267536e+00,3.20335633e-01]
+        popt_c2=[1.86247747e+02, 1.37125654e+00, 0.00000000e+00, 1.41574162e-01]
         
-    s1_ratio=s1_function1(mstar/mvir,*popt_s1)
-    s1=s1_ratio*s1_DMO
-    
-    c2_ratio=exp1min_func(mstar/mvir,*popt_c2)
-    c2=c2_ratio*c2_DMO
-    
-    a=(1.5*s1-2.*(3.5-s1)*sqrt(0.01)*sqrt(c2))/(1.5-(3.5-s1)*sqrt(0.01)*sqrt(c2))
-    c=((s1-2.)/((3.5-s1)*sqrt(0.01)-1.5/sqrt(c2)))**2
+        c2_DMO=10**(1.025-0.097*log10(mvir*0.671/1e12))
+        s1_DMO=(1+0.03*c2_DMO)/(1+0.01*c2_DMO)
+        
+        s1_ratio=s1_zhao_dmo(mstar/mvir,*popt_s1)
+        s1=s1_ratio*s1_DMO
+        
+        c2_ratio=exp1min_func(mstar/mvir,*popt_c2)
+        c2=c2_ratio*c2_DMO
+        
+        a=(1.5*s1-2.*(3.5-s1)*sqrt(0.01)*sqrt(c2))/(1.5-(3.5-s1)*sqrt(0.01)*sqrt(c2))
+        c=((s1-2.)/((3.5-s1)*sqrt(0.01)-1.5/sqrt(c2)))**2
         
     return (c, a, 2, 3, rvir, mvir)    
+
+def s1_zhao_dmo(x,x0,nu,spp):
+    return 1./(1.+pow(x/x0,nu))+spp*log10(1.+pow(x/x0,nu))
 
 def s1_function1(x,x1,x2,nu1,nu2):#,eta):
     return 1.+np.log10(pow(1.+x/x1,-nu1)+pow(x/x2,nu2))
