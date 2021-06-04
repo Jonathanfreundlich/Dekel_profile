@@ -307,6 +307,8 @@ def get_params_dekel(rvir,mstar,mvir,fit_func='new'):
     if fit_func=='new':
         popt_s1=[1.30278262e-03,2.86267536e+00,3.20335633e-01]
         popt_c2=[1.86247747e+02, 1.37125654e+00, 0.00000000e+00, 1.41574162e-01]
+        # Note: the popt_c2 parameters with function exp1min_func are equivalent to the parameters
+        # quoted in Table 1 of Freundlich+20b and their Eq. (49), with c1=popt_c2[0]=c'/x0^nu. 
         
         c2_DMO=10**(1.025-0.097*np.log10(mvir*0.671/1e12))
         s1_DMO=(1+0.03*c2_DMO)/(1+0.01*c2_DMO)
