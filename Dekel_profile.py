@@ -180,6 +180,7 @@ def U_function(r, params, model='dekel'):
             return np.array([-Vvir2-quad(dU,rt,Rvir)[0] for rt in r])
 
 # VELOCITY DISPERSION [kpc Gyr^-1] (ISOTROPIC)
+# WARNING: THIS EXPRESSION IS FOR AN UNTRUNCATED HALO! 
 def sigmar_function(r,params, model='dekel'):
     
     if model == 'dekel': 
@@ -200,6 +201,7 @@ def sigmar_function(r,params, model='dekel'):
 
 # VELOCITY DISPERSION [kpc Gyr^-1] (ISOTROPIC) AS A SUM 
 # (Zhao 1996, Eq. 19, Freundlich+2020a, Eq. B8)
+# WARNING: THIS EXPRESSION IS FOR AN UNTRUNCATED HALO! 
 def sigmar_function_sum(r,params, model='dekel'):
 
     if model == 'dekel': 
@@ -220,6 +222,7 @@ def sigmar_function_sum(r,params, model='dekel'):
 
 # VELOCITY DISPERSION [kpc Gyr^-1] (ISOTROPIC) AS ANOTHER SUM 
 # (Freundlich+2020a, Eq. B10)        
+# WARNING: THIS EXPRESSION IS FOR AN UNTRUNCATED HALO! 
 def sigmar_function_sum2(r,params, model='dekel'):
       
     if model == 'dekel': 
